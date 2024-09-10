@@ -20,8 +20,7 @@ const Login = () => {
         <>
             <Box
                 sx={{
-                    width: "100%",
-                    height: "100vh",
+                    minHeight: "100vh",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -63,7 +62,7 @@ const Login = () => {
                                 value={name}
                                 onChange={(e) => setName(e.target.value)}
                                 autoComplete="off"
-                                size="medium"
+                                size="small"
                                 fullWidth
                             />
                             <TextField
@@ -74,7 +73,7 @@ const Login = () => {
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 autoComplete="off"
-                                size="medium"
+                                size="small"
                                 fullWidth
                             />
                             <Button
