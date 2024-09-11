@@ -13,6 +13,7 @@ import { useDispatch } from "react-redux";
 import { logout } from "../../store/reducers/auth.reducer";
 import { useTranslation } from "react-i18next";
 import MenuOption from "./menu-option";
+import { NavLink } from "react-router-dom";
 
 
 const Sidebar = () => {
@@ -102,29 +103,20 @@ const Sidebar = () => {
             <MenuOption key={option.name} link={option} />
           ))}
           <li>
-            <button
+            <NavLink
+              to="/"
               onClick={logoutHandler}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                width: "100%",
-                padding: "1rem",
-                backgroundColor: "transparent",
-                border: "none",
-                color: "white",
-                cursor: "pointer",
-              }}
-            >
-              <IoMdExit size={20} />
-              <Box sx={{ display: { xs: "none", md: "block" } }}>{t("logout")}</Box>
-            </button>
+              className="sidebar-link"
+              >
+              <IoMdExit className="icon" /> <Box sx={{ display: { xs: "none", md: "block" } }}>{t("logout")}</Box>
+              </NavLink>
           </li>
         </ul>
       </nav>
       <Box
         sx={{
           paddingX: { md: "2.5rem" },
+          paddingY: "1rem",
           display: "flex",
           flexDirection: { xs: "column", md: "row" },
           flexWrap: "wrap",

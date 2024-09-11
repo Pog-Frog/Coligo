@@ -2,6 +2,7 @@ import { RootState } from './store/store';
 import { Navigate, Route, Routes } from "react-router-dom";
 import { useSelector } from "react-redux";
 import Login from "./pages/login";
+import Dashboard from './pages/dashboard';
 import './App.css'
 import Layout from './layouts';
 
@@ -16,6 +17,7 @@ const App: React.FC = () => {
           element={!user ? <Login /> : <Navigate to="/dashboard" />}
         />
         <Route element={<Layout />}>
+          <Route path="/dashboard" element={<Dashboard />} />
         </Route>
       </Routes>
     </div>
