@@ -1,4 +1,4 @@
-import { Paper, Box, Typography } from "@mui/material";
+import { Paper, Box, Typography, IconButton } from "@mui/material";
 import { IoMdExit } from "react-icons/io";
 import { IoHome } from "react-icons/io5";
 import {
@@ -14,9 +14,11 @@ import { logout } from "../../store/reducers/auth.reducer";
 import { useTranslation } from "react-i18next";
 import MenuOption from "./menu-option";
 import { NavLink } from "react-router-dom";
-
+import { useState } from "react"; // Import useState for sidebar toggle
+import MenuIcon from "@mui/icons-material/Menu"; // Icon for sidebar toggle
 
 const Sidebar = () => {
+  const [isSidebarOpen, setSidebarOpen] = useState(false); // State for toggle
 
   const menuOptions = [
     {
@@ -63,81 +65,70 @@ const Sidebar = () => {
     },
   ];
 
-  const [t, i18n] = useTranslation();
-
+  const [t] = useTranslation();
   const dispatch = useDispatch();
 
   const logoutHandler = () => {
     dispatch(logout());
   };
+  
 
   return (
-    <Paper
-      elevation={3}
-      square
-      sx={{
-        minHeight: "100vh",
-        width: { xs: "fit-content", md: "16rem" },
-        backgroundImage: "linear-gradient(to bottom, #12567b, #398593)",
-        display: "flex",
-        flexDirection: "column",
-      }}
-    >
-      <Box marginX="auto" paddingY="2.5rem">
-        <Typography
-          variant="h4"
-          component="h2"
-          sx={{
-            fontWeight: "600",
-            color: "white",
-            letterSpacing: "0.025em",
-            display: { xs: "none", md: "block" },
-          }}
-        >
-          Coligo
-        </Typography>
-      </Box>
-      <nav style={{ marginTop: "0.5rem" }}>
-        <ul>
-          {menuOptions.map((option) => (
-            <MenuOption key={option.name} link={option} />
-          ))}
-          <li>
-            <NavLink
-              to="/"
-              onClick={logoutHandler}
-              className="sidebar-link"
-              >
-              <IoMdExit className="icon" /> <Box sx={{ display: { xs: "none", md: "block" } }}>{t("logout")}</Box>
-              </NavLink>
-          </li>
-        </ul>
-      </nav>
-      <Box
+    <>
+      <IconButton
+        sx={{ display: { xs: "block", md: "none" }, position: "fixed", top: 10, left: 10, zIndex: 1300 }}
+        onClick={() => setSidebarOpen(!isSidebarOpen)}
+      >
+        <MenuIcon sx={{ color: "grey" }} />
+      </IconButton>
+      
+      <Paper
+        elevation={3}
+        square
         sx={{
-          paddingX: { md: "2.5rem" },
-          paddingY: "1rem",
+          minHeight: "100vh",
+          width: { xs: isSidebarOpen ? "16rem" : 0, md: "16rem" },
+          backgroundImage: "linear-gradient(to bottom, #12567b, #398593)",
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          flexWrap: "wrap",
-          gap: "1rem",
-          justifyContent: { xs: "center", md: "left" },
+          flexDirection: "column",
+          transition: "width 0.3s ease-in-out",
+          overflow: "hidden",
+          position: { xs: "fixed", md: "static" },
+          zIndex: { xs: 1200, md: 1 },
         }}
       >
-        <button
-          onClick={() => i18n.changeLanguage("en")}
-          style={{ color: "white", fontSize: "1rem" }}
-        >
-          {t("english")}
-        </button>
-        <button
-          onClick={() => i18n.changeLanguage("ar")}
-          style={{ color: "white", fontSize: "1rem" }}
-        >
-          {t("arabic")}
-        </button>
-      </Box>
-    </Paper>
+        <Box marginX="auto" paddingY="2.5rem">
+          <Typography
+            variant="h4"
+            component="h2"
+            sx={{
+              fontWeight: "600",
+              color: "white",
+              letterSpacing: "0.025em",
+              display: { xs: "none", md: "block" },
+            }}
+          >
+            Coligo
+          </Typography>
+        </Box>
+
+        <nav style={{ marginTop: "0.5rem" }}>
+          <ul>
+            {menuOptions.map((option) => (
+              <MenuOption key={option.name} link={option} />
+            ))}
+            <li>
+              <NavLink to="/" onClick={logoutHandler} className="sidebar-link">
+                <IoMdExit className="icon" />{" "}
+                <Box>
+                  {t("logout")}
+                </Box>
+              </NavLink>
+            </li>
+          </ul>
+        </nav>
+      </Paper>
+    </>
   );
 };
 

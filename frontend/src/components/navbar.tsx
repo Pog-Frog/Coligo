@@ -37,7 +37,7 @@ const Navbar = () => {
             fontSize: "1.875rem",
           }}
         >
-          <span>{t("welcomeUser")}</span>
+          <span>{t("welcome")}</span>
           {" " + user},
         </Typography>
         <Avatar />
@@ -50,6 +50,7 @@ const Navbar = () => {
           letterSpacing: "0.025em",
           display: { xs: "block", md: "none" },
           color: "rgb(107 114 128)",
+          paddingLeft: "1rem",
         }}
       >
         Coligo

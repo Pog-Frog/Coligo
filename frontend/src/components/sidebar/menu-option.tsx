@@ -23,7 +23,7 @@ const MenuOption: React.FC<MenuOptionProps> = ({ link }) => {
 
             >
                 {link.icon}
-                <Box sx={{ display: { xs: "none", md: "block" } }}>{t(link.name)}</Box>
+                <Box>{t(link.name)}</Box>
             </NavLink>
         </li>
     );
