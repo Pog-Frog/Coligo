@@ -1,4 +1,4 @@
-import { Timeline } from "@mui/icons-material";
+import Timeline from "@mui/lab/Timeline";
 import Announcement from "../interfaces/announcement.interface";
 import SingleAnnouncement from "./announcements";
 

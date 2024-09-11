@@ -3,9 +3,8 @@ import TimelineItem from "@mui/lab/TimelineItem";
 import TimelineSeparator from "@mui/lab/TimelineSeparator";
 import TimelineConnector from "@mui/lab/TimelineConnector";
 import TimelineContent from "@mui/lab/TimelineContent";
-import TimelineDot from "@mui/lab/TimelineDot";
 import { Typography } from "@mui/material";
-
+import Avatar from "@mui/material/Avatar";
 
 interface AnnouncementProps {
     key: string;
@@ -15,9 +14,21 @@ interface AnnouncementProps {
 const SingleAnnouncement: React.FC<AnnouncementProps> = ({ announcement }) => {
     return (
         <>
-            <TimelineItem sx={{ minHeight: "60px" }}>
+            <TimelineItem sx={{ minHeight: "60px", paddingBottom: "2rem", gap: "8px" }}>
                 <TimelineSeparator>
-                    <TimelineDot />
+                    <div style={{ display: "flex", flexDirection: "row", gap: "8px", alignItems: "center" }}>
+                        <Avatar sx={{ width: 40, height: 40 }} />
+                        <div style={{ display: "flex", flexDirection: "column", gap: "2px"}}>
+                            <Typography variant="caption" component="p" fontSize={"16px"} noWrap>
+                                {announcement.author}
+                            </Typography>
+                            <Typography variant="caption" component="p" fontSize={"12px"} noWrap color="grey">
+                                {announcement.subject}
+                            </Typography>
+                        </div>
+                    </div>
+                </TimelineSeparator>
+                <TimelineSeparator>
                     <TimelineConnector />
                 </TimelineSeparator>
                 <TimelineContent>

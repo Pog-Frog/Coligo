@@ -10,14 +10,20 @@ const Dashboard = () => {
         {
             _id: "1",
             title: "Announcement 1",
+            author: "Author 1",
+            subject: "Subject 1",
         },
         {
             _id: "2",
             title: "Announcement 2",
+            author: "Author 2",
+            subject: "Subject 2",
         },
         {
             _id: "3",
             title: "Announcement 3",
+            author: "Author 3",
+            subject: "Subject 3",
         },
     ];
 

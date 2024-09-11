@@ -26,7 +26,7 @@ const AnnouncementsList: React.FC<AnnouncementsListProps> = ({ loading, announce
                 }}
             >
                 <Typography variant="h5" component="h3" sx={{ fontWeight: 500 }}>
-                    {t("announcements")}
+                    {t("Announcements")}
                 </Typography>
                 {!loading && announcements ? (
                     <AnnouncementTimeline
