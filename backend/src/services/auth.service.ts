@@ -42,7 +42,7 @@ export class AuthService {
             data: {
                 name: userData.name,
                 email: userData.email,
-                hashedPassword: hashedPassword
+                password: hashedPassword
             }
         });
 
@@ -59,7 +59,7 @@ export class AuthService {
             throw new HttpException(404, "The email you entered doesn't belong to an account.");
         }
 
-        const isPasswordMatching: boolean = await compare(userData.password, findUser.hashedPassword);
+        const isPasswordMatching: boolean = await compare(userData.password, findUser.password);
         if (!isPasswordMatching) {
             throw new HttpException(404, 'Invalid email or password');
         }
