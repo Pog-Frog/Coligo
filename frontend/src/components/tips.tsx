@@ -26,7 +26,7 @@ const Tips = () => {
                         className="gradient-text"
                         sx={{ fontWeight: 700, textTransform: "uppercase" }}
                     >
-                        {t("exams")}
+                        {t("exams time")}
                     </Typography>
                     <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         <Typography variant="subtitle1" component="p">
