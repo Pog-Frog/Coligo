@@ -2,56 +2,15 @@ import { Box } from "@mui/material";
 import Tips from "../components/tips";
 import AnnouncementsList from "../components/announcementList";
 import ExamsList from "../components/examList";
+import useAnnouncements from "../hooks/useAnnouncements";
+import useExams from "../hooks/useExams";
 
 
 const Dashboard = () => {
 
-    const announcementsLoading = false;
-    const announcements = [
-        {
-            _id: "1",
-            title: "Announcement 1",
-            author: "Author 1",
-            subject: "Subject 1",
-        },
-        {
-            _id: "2",
-            title: "Announcement 2",
-            author: "Author 2",
-            subject: "Subject 2",
-        },
-        {
-            _id: "3",
-            title: "Announcement 3",
-            author: "Author 3",
-            subject: "Subject 3",
-        },
-    ];
-
-    const exams = [
-        {
-            _id: "1",
-            title: "Exam 1",
-            course: "Course 1",
-            topic: "Topic 1",
-            due: "Due 1",
-        },
-        {
-            _id: "2",
-            title: "Exam 2",
-            course: "Course 2",
-            topic: "Topic 2",
-            due: "Due 2",
-        },
-        {
-            _id: "3",
-            title: "Exam 3",
-            course: "Course 3",
-            topic: "Topic 3",
-            due: "Due 3",
-        },
-    ];
-
+    const { announcements, isLoading: announcementsLoading } = useAnnouncements();
+    const { exams, isLoading: examsLoading } = useExams();
+    console.log(announcements);
 
     return (
         <>
@@ -73,7 +32,7 @@ const Dashboard = () => {
                 </Box>
                 <Box width={{xs: "100%", sm: "100%", md: "38%" }} sx={{marginTop: {xs: "2%", sm: "2%", md: "0", lg: "0"}}}>
                     <ExamsList
-                        loading={announcementsLoading}
+                        loading={examsLoading}
                         exams={exams!}
                     />
                 </Box>
