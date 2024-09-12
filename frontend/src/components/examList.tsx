@@ -36,7 +36,7 @@ const ExamsList: React.FC<ExamsListProps> = ({ loading, exams }) => {
 
                 {!loading && exams ? (
                     exams.map((exam) => (
-                        <SingleExam key={exam._id} exam={exam} />
+                        <SingleExam key={exam.id} exam={exam} />
                     ))
                 ) : (
                     <p> {t("loading")}</p>

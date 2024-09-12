@@ -13,7 +13,7 @@ const AnnouncementTimeline: React.FC<AnnouncementTImelineProps> = ({ announcemen
             <Timeline sx={{ marginTop: "1rem", padding: 0 }}>
                 {announcements.map((announcement) => (
                     <SingleAnnouncement
-                        key={announcement._id}
+                        key={announcement.id}
                         announcement={announcement}
                     />
                 ))}

@@ -1,5 +1,5 @@
 export default interface Exam {
-    _id: string;
+    id: string;
     title: string;
     course: string;
     topic: string;
