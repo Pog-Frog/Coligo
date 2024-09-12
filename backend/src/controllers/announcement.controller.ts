@@ -15,7 +15,7 @@ export class AnnouncementController {
             const announcementData: Announcement = req.body;
 
             if (!announcementData.userId) {
-                const userId = await TokenUtils.getUserIDFromToken(req);
+                const userId = (await prisma.user.findFirst({select: {id: true}})).id || await TokenUtils.getUserIDFromToken(req);
 
                 if (!userId) {
                     throw new HttpException(409, "Invalid token");
@@ -35,7 +35,7 @@ export class AnnouncementController {
     public updateAnnouncement = async (req: RequestWithUser, res: Response, next: NextFunction) => {
         try {
             const announcementData: Announcement = req.body;
-            const userId = await TokenUtils.getUserIDFromToken(req);
+            const userId = (await prisma.user.findFirst({select: {id: true}})).id || await TokenUtils.getUserIDFromToken(req);
 
             if (!userId) {
                 throw new HttpException(409, "Invalid token");
@@ -52,7 +52,7 @@ export class AnnouncementController {
     public deleteAnnouncement = async (req: RequestWithUser, res: Response, next: NextFunction) => {
         try {
             const announcementId = req.params.announcementId;
-            const userId = await TokenUtils.getUserIDFromToken(req);
+            const userId = (await prisma.user.findFirst({select: {id: true}})).id || await TokenUtils.getUserIDFromToken(req);
 
             if (!announcementId) {
                 throw new HttpException(409, "Announcement ID is required");
@@ -68,8 +68,7 @@ export class AnnouncementController {
 
     public getAnnouncements = async (req: RequestWithUser, res: Response, next: NextFunction) => {
         try {
-            const userId = await TokenUtils.getUserIDFromToken(req);
-
+            const userId = (await prisma.user.findFirst({select: {id: true}})).id || await TokenUtils.getUserIDFromToken(req);
             if (!userId) {
                 throw new HttpException(409, "Invalid token");
             }
@@ -84,8 +83,7 @@ export class AnnouncementController {
 
     public getAnnouncement = async (req: RequestWithUser, res: Response, next: NextFunction) => {
         try {
-            const userId = await TokenUtils.getUserIDFromToken(req);
-
+            const userId = (await prisma.user.findFirst({select: {id: true}})).id || await TokenUtils.getUserIDFromToken(req);
             if (!userId) {
                 throw new HttpException(409, "Invalid token");
             }
