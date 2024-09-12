@@ -1,5 +1,5 @@
-import {Category} from "@prisma/client";
-import {Task} from "@prisma/client";
+import {Exam} from "@prisma/client";
+import {Announcement} from "@prisma/client";
 
 ;
 
@@ -8,8 +8,8 @@ export interface User {
     email: string;
     password?: string;
     name: string;
-    categories?: Category[];
-    tasks?: Task[];
+    exams?: Exam[];
+    announcements?: Announcement[];
 
     toJSON?(): any;
 }
