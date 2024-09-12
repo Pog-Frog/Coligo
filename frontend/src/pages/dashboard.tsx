@@ -36,14 +36,22 @@ const Dashboard = () => {
                     marginTop: "1.5rem !important",
                     display: "flex",
                     flexDirection: { sm: "column", md: "row" },
-                    flexWrap: "wrap",
-                    gap: "1rem",
+                    gap: "2%",
+                    flexWrap: { sm: "nowrap", md: "wrap" },
                 }}
             >
-                <AnnouncementsList
-                    loading={announcementsLoading}
-                    announcements={announcements!}
-                />
+                <Box width={{ sm: "100%", md: "60%" }}>
+                    <AnnouncementsList
+                        loading={announcementsLoading}
+                        announcements={announcements!}
+                    />
+                </Box>
+                <Box width={{ sm: "100%", md: "38%" }}>
+                    <AnnouncementsList
+                        loading={announcementsLoading}
+                        announcements={announcements!}
+                    />
+                </Box>
                 
             </Box>
         </>
