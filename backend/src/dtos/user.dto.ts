@@ -1,5 +1,5 @@
 import {IsString, IsNotEmpty, MinLength, IsEmail, MaxLength, IsOptional} from "class-validator";
-import {Task, Category} from "@prisma/client";
+import {Announcement, Exam} from "@prisma/client";
 
 
 export class CreateUserDto {
@@ -21,11 +21,11 @@ export class CreateUserDto {
 
     @IsString()
     @IsOptional()
-    tasks: Task[];
+    exams: Exam[];
 
     @IsString()
     @IsOptional()
-    categories: Category[];
+    announcements: Announcement[];
 }
 
 export class LoginUserDto {

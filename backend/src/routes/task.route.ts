@@ -3,7 +3,7 @@ import {authMiddleware} from "../middlewares/auth.middleware";
 import {validationMiddleware} from "../middlewares/validation.middleware";
 import {Route} from "../interfaces/route.interface";
 import {TaskController} from "../controllers/task.controller";
-import {CreateTaskDto, UpdateTaskDto} from "../dtos/task.dto";
+import {CreateTaskDto, UpdateTaskDto} from "../dtos/exam.dto";
 
 
 export class TaskRoute implements Route {

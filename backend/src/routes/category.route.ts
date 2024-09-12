@@ -2,7 +2,7 @@ import {Router} from "express";
 import {CategoryController} from "../controllers/category.controller";
 import {authMiddleware} from "../middlewares/auth.middleware";
 import {validationMiddleware} from "../middlewares/validation.middleware";
-import {CreateCategoryDto, UpdateCategoryDto} from "../dtos/category.dto";
+import {CreateCategoryDto, UpdateCategoryDto} from "../dtos/announcement.dto";
 import {Route} from "../interfaces/route.interface";
 
 
