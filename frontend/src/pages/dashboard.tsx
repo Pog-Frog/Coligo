@@ -1,6 +1,7 @@
 import { Box } from "@mui/material";
 import Tips from "../components/tips";
 import AnnouncementsList from "../components/announcementList";
+import ExamsList from "../components/examList";
 
 
 const Dashboard = () => {
@@ -27,6 +28,30 @@ const Dashboard = () => {
         },
     ];
 
+    const exams = [
+        {
+            _id: "1",
+            title: "Exam 1",
+            course: "Course 1",
+            topic: "Topic 1",
+            due: "Due 1",
+        },
+        {
+            _id: "2",
+            title: "Exam 2",
+            course: "Course 2",
+            topic: "Topic 2",
+            due: "Due 2",
+        },
+        {
+            _id: "3",
+            title: "Exam 3",
+            course: "Course 3",
+            topic: "Topic 3",
+            due: "Due 3",
+        },
+    ];
+
 
     return (
         <>
@@ -47,9 +72,9 @@ const Dashboard = () => {
                     />
                 </Box>
                 <Box width={{ sm: "100%", md: "38%" }}>
-                    <AnnouncementsList
+                    <ExamsList
                         loading={announcementsLoading}
-                        announcements={announcements!}
+                        exams={exams!}
                     />
                 </Box>
                 
