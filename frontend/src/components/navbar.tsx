@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux";
-import { RootState } from "../store/store";
+import { selectUser } from "../store/store";
 import Paper from "@mui/material/Paper";
 import Stack from "@mui/material/Stack";
 import Typography from "@mui/material/Typography";
@@ -9,7 +9,7 @@ import Avatar from "@mui/material/Avatar";
 
 const Navbar = () => {
   const [t] = useTranslation();
-  const user = useSelector((state: RootState) => state.auth.user);
+  const user = useSelector(selectUser);
 
   return (
     <Paper
