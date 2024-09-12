@@ -76,7 +76,7 @@ const Sidebar = () => {
   return (
     <>
       <IconButton
-        sx={{ display: { xs: "block", md: "none" }, position: "fixed", top: 10, left: 10, zIndex: 1300 }}
+        sx={{ display: { xs: "block", md: "none" }, position: "absolute", top: 10, left: 10, zIndex: 1300 }}
         onClick={() => setSidebarOpen(!isSidebarOpen)}
       >
         <MenuIcon sx={{ color: "grey" }} />
