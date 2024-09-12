@@ -60,18 +60,18 @@ const Dashboard = () => {
                 sx={{
                     marginTop: "1.5rem !important",
                     display: "flex",
-                    flexDirection: { sm: "column", md: "row" },
+                    flexDirection: "row",
                     gap: "2%",
-                    flexWrap: { sm: "nowrap", md: "wrap" },
+                    flexWrap: "wrap",
                 }}
             >
-                <Box width={{ sm: "100%", md: "60%" }}>
+                <Box width={{ xs: "100%", sm: "100%", md: "60%" }} >
                     <AnnouncementsList
                         loading={announcementsLoading}
                         announcements={announcements!}
                     />
                 </Box>
-                <Box width={{ sm: "100%", md: "38%" }}>
+                <Box width={{xs: "100%", sm: "100%", md: "38%" }} sx={{marginTop: {xs: "2%", sm: "2%", md: "0", lg: "0"}}}>
                     <ExamsList
                         loading={announcementsLoading}
                         exams={exams!}
