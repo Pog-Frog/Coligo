@@ -25,7 +25,7 @@ const AnnouncementsList: React.FC<AnnouncementsListProps> = ({ loading, announce
                     flexGrow: 1,
                 }}
             >
-                <Typography variant="h5" component="h3" sx={{ fontWeight: 500 }}>
+                <Typography variant="h5" component="h3" sx={{ fontWeight: 500, paddingBottom: "6px" }}>
                     {t("Announcements")}
                 </Typography>
                 {!loading && announcements ? (
