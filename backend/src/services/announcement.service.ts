@@ -104,7 +104,7 @@ export class AnnouncementService {
     }
     
 
-    public async getCategories(userId: string): Promise<Announcement[]> {
+    public async getAnnouncements(userId: string): Promise<Announcement[]> {
         let findUser: User;
         try {
             findUser = await prisma.user.findFirst({where: {id: userId}});

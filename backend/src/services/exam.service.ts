@@ -106,7 +106,7 @@ export class ExamService {
     }
     
 
-    public async getCategories(userId: string): Promise<Exam[]> {
+    public async getExams(userId: string): Promise<Exam[]> {
         let findUser: User;
         try {
             findUser = await prisma.user.findFirst({where: {id: userId}});
