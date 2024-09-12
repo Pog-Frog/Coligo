@@ -16,7 +16,7 @@ export class AnnouncementRoute implements Route {
     }
 
     private initializeRoutes() {
-        this.router.post(`${this.path}`, authMiddleware, validationMiddleware(CreateAnnouncementDto), this.announcementController.createAnnouncement);
+        this.router.post(`${this.path}`, validationMiddleware(CreateAnnouncementDto), this.announcementController.createAnnouncement);
         this.router.put(`${this.path}/:announcementId`, authMiddleware, validationMiddleware(UpdateAnnouncementDto), this.announcementController.updateAnnouncement);
         this.router.delete(`${this.path}/:announcementId`, authMiddleware, this.announcementController.deleteAnnouncement);
         this.router.get(`${this.path}`, this.announcementController.getAnnouncements);

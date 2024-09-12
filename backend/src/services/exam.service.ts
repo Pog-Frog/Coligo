@@ -36,7 +36,7 @@ export class ExamService {
                 data: {
                     exams: {
                         connect: {
-                            id: createdExam._id
+                            id: createdExam.id
                         }
                     }
                 }

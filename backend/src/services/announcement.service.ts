@@ -35,7 +35,7 @@ export class AnnouncementService {
                 data: {
                     announcements: {
                         connect: {
-                            id: createdAnnouncement._id
+                            id: createdAnnouncement.id
                         }
                     }
                 }

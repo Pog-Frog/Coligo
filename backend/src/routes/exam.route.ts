@@ -16,7 +16,7 @@ export class ExamRoute implements Route {
     }
 
     private initializeRoutes() {
-        this.router.post(`${this.path}`, authMiddleware, validationMiddleware(CreateExamDtO), this.examController.createExam);
+        this.router.post(`${this.path}`, validationMiddleware(CreateExamDtO), this.examController.createExam);
         this.router.put(`${this.path}/:examId`, authMiddleware, validationMiddleware(UpdateExamDtO), this.examController.updateExam);
         this.router.delete(`${this.path}/:examId`, authMiddleware, this.examController.deleteExam);
         this.router.get(`${this.path}`, this.examController.getExams);
