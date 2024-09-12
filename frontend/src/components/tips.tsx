@@ -30,16 +30,16 @@ const Tips = () => {
                     </Typography>
                     <Box sx={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                         <Typography variant="subtitle1" component="p">
-                            Here we are, Are you ready to fight? Don't worry, we prepared some tips to be ready for your exams.
+                            {t("Here we are, Are you ready to fight? Don't worry, we prepared some tips to be ready for your exams.")}
                         </Typography>
                         <Typography variant="body2" component="p" color="#0e9fb7">
-                            Nothing happens until something moves - Albert Einstein
+                            {t("Nothing happens until something moves - Albert Einstein")}
                         </Typography>
                         <Button
                             variant="contained"
                             sx={{ width: { xs: "100%", lg: "fit-content", backgroundColor: '#4cccc5' } }}
                         >
-                            View Exam Tips
+                            {t("View Exam Tips")}
                         </Button>
                     </Box>
                 </Box>
