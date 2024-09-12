@@ -19,7 +19,7 @@ export class AnnouncementRoute implements Route {
         this.router.post(`${this.path}`, authMiddleware, validationMiddleware(CreateAnnouncementDto), this.announcementController.createAnnouncement);
         this.router.put(`${this.path}/:announcementId`, authMiddleware, validationMiddleware(UpdateAnnouncementDto), this.announcementController.updateAnnouncement);
         this.router.delete(`${this.path}/:announcementId`, authMiddleware, this.announcementController.deleteAnnouncement);
-        this.router.get(`${this.path}`, authMiddleware, this.announcementController.getAnnouncement);
-        this.router.get(`${this.path}/:announcementId`, authMiddleware, this.announcementController.getAnnouncement);
+        this.router.get(`${this.path}`, this.announcementController.getAnnouncements);
+        this.router.get(`${this.path}/:announcementId`, this.announcementController.getAnnouncement);
     }
 }
