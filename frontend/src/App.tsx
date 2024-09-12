@@ -20,6 +20,7 @@ const App: React.FC = () => {
         <Route element={<Layout />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
+        <Route path="*" element={<Navigate to="/dashboard" />} />
       </Routes>
     </div>
   );

@@ -5,6 +5,7 @@ import { store, persistor } from './store/store.ts';
 import React from 'react';
 import { PersistGate } from 'redux-persist/integration/react';
 import { BrowserRouter } from 'react-router-dom';
+import "./i18next/index.js";
 
 
 createRoot(document.getElementById('root')!).render(
